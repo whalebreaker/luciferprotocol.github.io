@@ -3,149 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Whale Breaker - Official Token Website</title>
+  <title>LUCIFER PROTOCOL</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #002244;
-      background-image: url('https://whalebreaker-assets.s3.amazonaws.com/hammer-whale-banner.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center top;
-      color: #ffffff;
       margin: 0;
       padding: 0;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.6);
-      height: 60vh;
+      background: #000;
+      color: #f44336;
+      font-family: 'Courier New', Courier, monospace;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 2rem;
+      filter: drop-shadow(0 0 15px #f44336);
+      animation: burn 1.2s infinite alternate ease-in-out;
+    }
+
+    @keyframes burn {
+      0%   { filter: drop-shadow(0 0 15px #f44336) brightness(1); }
+      50%  { filter: drop-shadow(0 0 25px #ff1100) brightness(1.2); }
+      100% { filter: drop-shadow(0 0 10px #f44336) brightness(0.9); }
+    }
+
+    .message {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
       text-align: center;
-      color: #fff;
     }
-    header h1 {
-      font-size: 3rem;
-      text-shadow: 2px 2px 4px #000;
-    }
-    header p {
+
+    .accept-button {
+      padding: 1rem 2rem;
       font-size: 1.2rem;
-      text-shadow: 1px 1px 2px #000;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-    }
-    h2 {
-      color: #ffb703;
-      border-bottom: 2px solid #ffb703;
-      padding-bottom: 5px;
-    }
-    ul li, ol li, p {
-      line-height: 1.6;
-    }
-    a {
-      color: #58a6ff;
-    }
-    button {
-      padding: 12px 24px;
-      background-color: #ffb703;
       color: #000;
+      background: #f44336;
       border: none;
-      border-radius: 10px;
-      font-size: 18px;
       cursor: pointer;
+      box-shadow: 0 0 20px #f44336aa;
+      transition: background 0.3s ease;
     }
-    .buy-button {
-      display: block;
-      margin-top: 20px;
-      text-align: center;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #161b22;
-      color: #aaa;
+
+    .accept-button:hover {
+      background: #ff6659;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Whale Breaker (WB)</h1>
-      <p>Smashing Market Manipulation. Empowering the People.</p>
-    </div>
-  </header>
+  <img src="lucifer-logo.png" alt="Lucifer Protocol Logo" class="logo" />
+  <div class="message">Do you accept the forbidden gift?</div>
+  <button class="accept-button" onclick="connectWallet()">I Accept</button>
 
-  <section>
-    <h2>About</h2>
-    <p>
-      Whale Breaker (WB) is a token designed to restore market balance and break the dominance of whales.
-      Built on the principles of fairness, transparency, decentralization, and community empowerment.
-    </p>
-  </section>
+  <audio id="ritualAudio" autoplay loop>
+    <source src="lucifer-ritual.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
-  <section>
-    <h2>Tokenomics</h2>
-    <ul>
-      <li>Total Supply: 7,500,000 WB</li>
-      <li>75% reserved for marketing and community distribution</li>
-      <li>525,000 WB provided as liquidity</li>
-      <li>75% of liquidity is locked</li>
-    </ul>
-  </section>
+  <script>
+    async function connectWallet() {
+      const audio = document.getElementById("ritualAudio");
+      if (audio.paused) {
+        audio.play().catch(e => console.warn("Autoplay blocked"));
+      }
 
-  <section>
-    <h2>Roadmap</h2>
-    <ol>
-      <li>Phase 1: Token creation, liquidity added, initial marketing</li>
-      <li>Phase 2: Official website launch</li>
-      <li>Phase 3: Whale tracking tool + trader alerts</li>
-      <li>Phase 4: Exclusive NFT for holders</li>
-      <li>Phase 5: Community voting platform & partnerships</li>
-    </ol>
-  </section>
-
-  <section>
-    <h2>Token Details</h2>
-    <ul>
-      <li>Network: BNB Smart Chain</li>
-      <li>Contract Address: <code>0x849d0299f552510F0aF1fB3F47966Af09915b161</code></li>
-      <li><a href="https://pancakeswap.finance/swap?outputCurrency=0x849d0299f552510F0aF1fB3F47966Af09915b161&inputCurrency=BNB" target="_blank">Buy on PancakeSwap</a></li>
-      <li><a href="https://app.uncx.network/lockers/univ2/chain/56/address/0x774dd8b4b54882be76aec7ddc4131c6b14d0ae3a" target="_blank">Liquidity Lock on Unicrypt</a></li>
-    </ul>
-    <div class="buy-button">
-      <a href="https://pancakeswap.finance/swap?outputCurrency=0x849d0299f552510F0aF1fB3F47966Af09915b161&inputCurrency=BNB" target="_blank">
-        <button>Buy WB Now</button>
-      </a>
-    </div>
-  </section>
-
-  <section>
-    <h2>Security Review</h2>
-    <p>
-      Whale Breaker's smart contract has passed an initial automated audit with no critical issues detected. View the full scan result via TokenSniffer:
-    </p>
-    <ul>
-      <li><a href="https://tokensniffer.com/token/bsc/0x849d0299f552510f0af1fb3f47966af09915b161" target="_blank">View TokenSniffer Scan</a></li>
-    </ul>
-    <p>More audit partnerships will follow as we expand.</p>
-  </section>
-
-  <section>
-    <h2>Social Links</h2>
-    <ul>
-      <li><a href="https://x.com/Whale_Breaker" target="_blank">Twitter (X)</a></li>
-      <li><a href="#">GitHub</a></li>
-    </ul>
-  </section>
-
-  <footer>
-    &copy; 2025 Whale Breaker. All Rights Reserved.
-  </footer>
+      if (typeof window.ethereum !== 'undefined') {
+        try {
+          const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          const address = accounts[0];
+          console.log('Connected:', address);
+          alert("Welcome to the protocol. The pact is sealed.");
+        } catch (error) {
+          alert('Connection denied. The darkness waits.');
+        }
+      } else {
+        alert('No wallet detected. Are you even human?');
+      }
+    }
+  </script>
 </body>
 </html>
